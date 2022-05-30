@@ -93,19 +93,19 @@ function buildCharts(sample) {
       type : "bar",
       orientation: 'h',
       text: otu_labels.slice(0,10).reverse()
-      
     };
 
     var barData = [trace];
     // 9. Create the layout for the bar chart. 
     var barLayout = {
       title : "Top 10 Bacteria Cultures Found"
-     
     };
     // 10. Use Plotly to plot the data with the layout. 
     Plotly.newPlot("bar", barData,  barLayout);
 
+    ////////
     // Deliverable 2 : Creating the buble chart 
+
     // 1. Create the trace for the bubble chart.
     var bubleCharTrace = {
       x: otu_ids,
@@ -117,25 +117,23 @@ function buildCharts(sample) {
         colorscale: "Cividis"
       },
       text : otu_labels
-
     };
+
     var bubbleData = [bubleCharTrace];
 
     // 2. Create the layout for the bubble chart.
     var bubbleLayout = {
-
       title: "Bacteria Cultures Per Sample",
       xaxis: {title: "OTU ID"},
       automargin: true,
       hovermode: "closest",
-     
-      
     };
 
     // 3. Use Plotly to plot the data with the layout.
     Plotly.newPlot("bubble", bubbleData, bubbleLayout); 
 
-    // Deliverable 2 : Creating the gauge chart 
+    ////////
+    // Deliverable 3 : Creating the gauge chart 
 
     // 1. Create a variable that filters the metadata array for the object with the desired sample number.
     var metaInfo = data.metadata
@@ -164,7 +162,6 @@ function buildCharts(sample) {
           { range: [6, 8], color: "lime" },
           { range: [8, 10], color: "darkgreen" },
         ],
-
     }
   }
     var gaugeData = [gaugeTrace];
@@ -172,7 +169,6 @@ function buildCharts(sample) {
     // 5. Create the layout for the gauge chart.
     var gaugeLayout = { 
       automargin: true,
-     
     };
 
     // 6. Use Plotly to plot the gauge data and layout.
